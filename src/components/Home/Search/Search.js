@@ -62,13 +62,13 @@ const Search = () => {
                         <div class="accordion m-0" id="accordionExample">
                             <p className="fw-bold text-muted">Guests</p>
                             <div class="accordion-item m-0">
-                                <h2 class="accordion-header" id="headingOne">
+                                <div class="accordion-header" id="headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <p className="fw-bold">
                                             Adult, Child, Babies
                                         </p>
                                     </button>
-                                </h2>
+                                </div>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div className="row gy-5 gx-3 px-3">
                                         <div className="col-7 d-flex align-items-center">

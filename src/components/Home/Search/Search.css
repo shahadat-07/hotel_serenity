@@ -5,3 +5,16 @@
 .input-field:focus, .btn-focus:focus{
     box-shadow: none;
 }
+.accordion-button{
+    padding: 0 !important;
+    color: #000 !important;
+    background: #fff !important;
+}
+.accordion-button:focus{
+    color: #000 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+}
+.accordion-item{
+    border: none !important;
+}
