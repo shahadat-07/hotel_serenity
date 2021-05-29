@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import HotelDetails from './components/HotelDetails/HotelDetails';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hotel Serenity is coming soon...all is ok in the day</h1>
+    <div>
+      {/* <h1>Hotel Serenity is coming soon...all is ok</h1> */}
+      <HotelDetails></HotelDetails>
     </div>
   );
 }

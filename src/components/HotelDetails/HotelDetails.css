@@ -1,0 +1,30 @@
+.details-container .detail-width{
+    width: 85%;
+    margin: 0 auto;
+}
+.details-container .pricing-section{
+    width: 85%;
+    margin: 0 auto;
+}
+.details-container .person-img{
+    width: 50px;
+}
+.details-container .text-color{
+    color: rgb(139, 135, 135);
+    font-weight: 500;
+}
+.pricing-form-container{
+    border-radius: 10px;
+}
+
+@media (max-width: 991px){
+    .details-container .detail-width{
+        width: 94%;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 768px){
+    .details-container .pricing-section{
+        width: 100%;
+    }
+}
