@@ -1,8 +1,13 @@
 import React from 'react';
 import './HotelDetails.css';
+<<<<<<< HEAD
 import { hotelBenefit } from '../../FakeData/data';
 import HotelBenefit from './HotelBenefit';
+=======
+>>>>>>> 9af532bc1d136d03ac6cfd8198b7f20d8a0adeb7
 import DetailPricingForm from './DetailPricingForm';
+import { hotelBenefit } from '../../FakeData/data';
+import HotelBenefit from '../HotelDetails/HotelBenefit';
 
 const HotelDetails = () => {
 
