@@ -17,7 +17,7 @@ const HotelDetails = () => {
                 </div>
             </div>
             <div className="detail-width">
-                <div className="row mt-4">
+                <div className="row mt-5">
                     <div className="col-md-6">
                         <div className="row">
                             <div className="col-md-9">

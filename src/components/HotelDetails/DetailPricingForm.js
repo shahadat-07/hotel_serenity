@@ -10,14 +10,14 @@ const DetailPricingForm = () => {
             <div>
                 <div>
                     <small>Dates</small>
-                    <div className="row">
-                        <div className="col-4"><h5>5/29/2021</h5></div>
-                        <div className="col-4"><h5 className="text-center"><FontAwesomeIcon icon={faArrowRight} /></h5></div>
-                        <div className="col-4"><h5>6/3/2021</h5></div>
+                    <div className="row date-size">
+                        <div className="col-4">5/29/2021</div>
+                        <div className="col-4 text-center"><FontAwesomeIcon icon={faArrowRight} /></div>
+                        <div className="col-4">6/3/2021</div>
                     </div>
                     <small>Guests</small>
                     <select className="form-select mt-1">
-                        <option selected value="1">4 Guests</option>
+                        <option value="1">4 Guests</option>
                         <option value="2">2 Guests</option>
                         <option value="3">1 Guest</option>
                     </select>

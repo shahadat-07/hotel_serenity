@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const HotelBenefit = (props) => {
-    const { icon, title, description } = props.benefit;
-    console.log(props)
+    const { icon, title, description } = props?.benefit;
+
     return (
         <div className="d-flex">
             <div style={{marginRight: '7px'}}>
