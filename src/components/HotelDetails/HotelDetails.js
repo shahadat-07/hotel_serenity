@@ -27,8 +27,8 @@ const HotelDetails = () => {
                                 <img className="person-img rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr3qBVX4XIA8zq3LpBn64zAuOt9_IZ7_H5uA&usqp=CAU" alt="" />
                             </div>
                         </div>
-                        <p className="text-color mt-3">Dhaka, Bangladesh</p>
-                        <p className="text-color">4 guests  2 bedrooms  2 beds  2 baths</p>
+                        <p className="paragraph-text-color mt-3">Dhaka, Bangladesh</p>
+                        <p>4 guests  2 bedrooms  2 beds  2 baths</p>
                         <hr />
                         <div>
                             {

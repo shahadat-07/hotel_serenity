@@ -2,11 +2,18 @@ import React from 'react';
 import { faArrowRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const DetailPricingForm = () => {
+const ReviewForm = () => {
     return (
         <div className="shadow bg-body form-container">
-            <h5>$34/ <span>night</span></h5>
-            <small><span className="star-color"><FontAwesomeIcon icon={faStar} /></span> (67 reviews)</small>
+            <div className="row">
+                <div className="col-8">
+                    <h5>Light bright airy stylish apt & safe peaceful stay</h5>
+                    <small><span className="star-color"><FontAwesomeIcon icon={faStar} /></span> (67 reviews)</small>
+                </div>
+                <div className="col-4">
+                    <img className="img-fluid rounded-3" src="https://storage.googleapis.com/static-content-hc/sites/default/files/cataloina_porto_doble_balcon2_2.jpg" alt="" />
+                </div>
+            </div>
             <div>
                 <div className="mt-3">
                     <small>Dates</small>
@@ -41,14 +48,10 @@ const DetailPricingForm = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <button className="form-control bg-info text-white">Reserve</button>
-                    <div className="mt-2 text-center text-secondary">
-                        <small>You won't be changed yet</small>
-                    </div>
                 </div>
             </div>
         </div>
     );
 };
 
-export default DetailPricingForm;
+export default ReviewForm;

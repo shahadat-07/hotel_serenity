@@ -1,16 +1,45 @@
+.paragraph-text-color{
+    color: rgb(121, 118, 118);
+    font-weight: 400;
+}
+.star-color{
+    color: rgb(245, 233, 65);
+}
+.form-container{
+    border-radius: 10px;
+    padding: 35px 20px;
+}
+.form-container .date-size{
+    font-size: 18px;
+}
 .date-style{
-    background-color: rgb(158, 156, 153);
+    
 }
 .date-style p{
-    /* margin-bottom: 5px; */
+    margin-bottom: -2px;
 }
-.common-margin-left{
-    margin-left: 7px;
+.date-specific-style{
+    margin-right: 8px;
+    background-color: #ddd;
+    padding: 2px 5px;
+    border-radius: 5px;
 }
+.button-small-device{
+    display: none;
+}
+
 @media (max-width: 991px){
     .details-container .detail-width{
         width: 94%;
         margin: 0 auto;
+    }
+}
+@media (max-width: 768px){
+    .button-big-device{
+        display: none;
+    }
+    .button-small-device{
+        display: block;
     }
 }
 @media (max-width: 768px){

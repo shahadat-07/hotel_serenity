@@ -12,7 +12,7 @@ const HotelBenefit = (props) => {
             </div>
             <div>
                 <h5>{title}</h5>
-                <p className="text-color">{description}</p>
+                <p className="paragraph-text-color">{description}</p>
             </div>
         </div>
     );

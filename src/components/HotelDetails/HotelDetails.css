@@ -9,13 +9,3 @@
 .details-container .person-img{
     width: 50px;
 }
-.details-container .text-color{
-    color: rgb(139, 135, 135);
-    font-weight: 500;
-}
-.pricing-form-container{
-    border-radius: 10px;
-}
-.pricing-form-container .date-size{
-    font-size: 18px;
-}
