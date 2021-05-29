@@ -1,0 +1,12 @@
+.creditCard{
+    height: 400px;
+    width: 700px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.paypal{
+    height: 200px;
+    width: 700px;
+    border: 1px solid black;
+    border-radius: 5px;
+}

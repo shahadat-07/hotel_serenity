@@ -1,0 +1,11 @@
+#billCard{
+    padding: 50px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+#billCard td,select{
+    padding: 20px;
+}
+#billCard select{
+    margin-top: 10px;
+}
