@@ -1,33 +1,75 @@
 import React, { useState } from 'react';
+import firebase from "firebase/app";
+import "firebase/auth";
+import firebaseConfig from './firebase.config';
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+} else {
+    firebase.app();
+}
 
 const Login = () => {
     const [newUser, setNewUser] = useState(false);
+    const [user, setUser] = useState({
+        name: '',
+        email: '',
+        password: '',
+    })
+
+    const handleBlur = e => {
+
+        let isFormValid = true;
+        if (e.target.name === 'email') {
+            const isEmailValid = /\S+@\S+\.\S+/.test(e.target.value);
+            isFormValid = isEmailValid;
+        }
+        if (e.target.name === 'password') {
+            const isPasswordValid = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(e.target.value);
+            isFormValid = isPasswordValid;
+        }
+        if (isFormValid) {
+            const newUserInfo = { ...user };
+            newUserInfo[e.target.name] = e.target.value;
+            setUser(newUserInfo);
+        }
+    }
+    console.log(user);
+    const handleSubmit = e => {
+        e.preventDefault();
+        if (user.email && user.password) {
+            firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                });
+        }
+    }
+    // console.log(user);
     return (
         <div className="container mt-5">
             <div className="login-form-container shadow mb-5 bg-body">
                 <h5 className="text-center mb-4">{newUser ? 'CREATE AN ACCOUNT' : 'SIGN IN'}</h5>
-                <form className="" action="">
+                <form onSubmit={handleSubmit}>
                     {
-                        newUser && <div className="row">
-                            <div className="mb-3 col-6">
-                                <label className="form-label">First Name</label>
-                                <input type="text" className="form-control" placeholder="First name" />
-                            </div>
-                            <div className="mb-3 col-6">
-                                <label className="form-label">Last Name</label>
-                                <input type="text" className="form-control" placeholder="Last name" />
-                            </div>
+                        newUser &&
+                        <div className="mb-3">
+                            <label className="form-label">Name</label>
+                            <input type="text" name="name" className="form-control" placeholder="Enter your name" required />
                         </div>
                     }
                     <div className="mb-3">
                         <label className="form-label">Email</label>
-                        <input type="email" className="form-control" placeholder="Enter email here" />
+                        <input type="email" name="email" className="form-control" onBlur={handleBlur} placeholder="Enter email here" required />
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Password</label>
-                        <input type="password" className="form-control" placeholder="Enter password here" />
+                        <input type="password" name="password" className="form-control" onBlur={handleBlur} placeholder="Enter password here" required />
                     </div>
-                    <div class="d-grid gap-2">
+                    <div className="d-grid gap-2">
                         <button className="btn btn-info">{newUser ? 'CREATE AN ACCOUNT' : 'SIGN IN'}</button>
                     </div>
                 </form>

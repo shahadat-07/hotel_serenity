@@ -1,6 +1,6 @@
 import React from 'react';
 import './HotelDetails.css';
-import { hotelBenefit } from '../../fakeData/data';
+import { hotelBenefit } from '../../FakeData/data';
 import HotelBenefit from './HotelBenefit';
 import DetailPricingForm from './DetailPricingForm';
 
