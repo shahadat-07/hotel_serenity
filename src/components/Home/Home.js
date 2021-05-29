@@ -1,10 +1,19 @@
 import React from 'react';
+import Navbar from '../Shared/Navbar/Navbar';
+import Hotels from './Hotels/Hotels';
+import Search from './Search/Search';
 
 const Home = () => {
     return (
-        <div>
-            <h1>This is home</h1>
-        </div>
+        <>
+            <Navbar />
+            <div className="container">
+                <div className="row">
+                    <Search />
+                    <Hotels />
+                </div>
+            </div>
+        </>
     );
 };
 

@@ -1,10 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Home from './components/Home/Home';
+import AvailableHotels from './components/SearchResult/AvailableHotels/AvailableHotels';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hotel Serenity is coming soon...</h1>
+      <Home/>
+      <AvailableHotels/>
     </div>
   );
 }
