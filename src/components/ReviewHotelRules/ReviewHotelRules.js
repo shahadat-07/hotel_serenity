@@ -1,5 +1,5 @@
 import React from 'react';
-import { reviewRules } from '../../fakeData/data';
+import { reviewRules } from '../../FakeData/data';
 import '../ShareCss/ShareCss.css';
 import ReviewForm from './ReviewForm';
 import Rules from './Rules';
