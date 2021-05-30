@@ -32,3 +32,24 @@ export const decrementBabies = () => {
         type: 'BABIES_DECREMENT'
     }
 };
+
+export const setLocation = (location) => {
+    return {
+        type: 'SET_LOCATION',
+        payload: location
+    }
+};
+
+export const setArrivalDate = (date) => {
+    return {
+        type: 'SET_ARRIVAL_DATE',
+        payload: date
+    }
+}
+
+export const setDepartureDate = (date) => {
+    return {
+        type: 'SET_DEPARTURE_DATE',
+        payload: date
+    }
+}

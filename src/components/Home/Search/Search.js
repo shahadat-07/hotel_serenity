@@ -8,8 +8,12 @@ import {
     incrementChild,
     decrementChild,
     incrementBabies,
-    decrementBabies
+    decrementBabies,
+    setLocation,
+    setDepartureDate,
+    setArrivalDate
 } from '../../../redux/actions';
+import { useHistory } from 'react-router';
 
 const Search = () => {
 
@@ -17,15 +21,20 @@ const Search = () => {
     const child = useSelector(state => state.child);
     const babies = useSelector(state => state.babies);
     const dispatch = useDispatch();
+    const history = useHistory();
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-
+        // console.log(data);
+        dispatch(setLocation(data.location));
+        dispatch(setArrivalDate(data.arrival));
+        dispatch(setDepartureDate(data.departure));
+        history.push('/hotels')
     };
 
 
 
-
+    // console.log('location',watch('location'));
 
     const newDate = new Date();
     newDate.setDate(newDate.getDate());
@@ -35,6 +44,7 @@ const Search = () => {
     newDate.setDate(date.getDate() + 3);
     const futureDate = newDate.toISOString().substr(0, 10);
 
+  
 
     return (
         <div className="col py-5">
@@ -46,7 +56,7 @@ const Search = () => {
                 <div className="mb-3 p-3 bg-white shadow">
                     <label htmlFor="location" className="form-label fw-bold">Location</label>
                     <input type="text" name="location" placeholder="City, Landmark, or Address" id="location" className="form-control input-field" {...register("location", { required: true })} />
-                    {errors.location && <span>Enter a location</span>}
+                    {errors.location && <span className="text-danger">Enter a location</span>}
                 </div>
 
                 <div className="row g-3 mb-3">
@@ -71,17 +81,17 @@ const Search = () => {
                     <div className="row p-3">
 
 
-                        <div class="accordion m-0" id="accordionExample">
+                        <div className="accordion m-0" id="accordionExample">
                             <p className="fw-bold text-muted">Guests</p>
-                            <div class="accordion-item m-0">
-                                <div class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <div className="accordion-item m-0">
+                                <div className="accordion-header" id="headingOne">
+                                    <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <p className="fw-bold">
                                             Adult, Child, Babies
                                         </p>
                                     </button>
                                 </div>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div className="row gy-5 gx-3 px-3">
                                         <div className="col-7 d-flex align-items-center">
                                             <p className="fw-bold">ADULTS</p>

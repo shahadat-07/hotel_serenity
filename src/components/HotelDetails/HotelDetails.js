@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './HotelDetails.css';
-import DetailPricingForm from './DetailPricingForm';
 import { hotelBenefit } from '../../FakeData/data';
-import HotelBenefit from '../HotelDetails/HotelBenefit';
+import HotelBenefit from './HotelBenefit';
+import DetailPricingForm from './DetailPricingForm';
+import { useParams } from 'react-router';
+import hotelsData from '../../FakeData/singleHotelData.json';
 
 const HotelDetails = () => {
+    const {id} = useParams();
+    const [hotel, setHotel] = useState({});
+    const {guests, bedrooms, beds, baths, title, hotelImg, location, ratings, price, facilities1, facilities2, _id, owner, ownerImg} = hotel;
+    useEffect(() => {
+        fetch(`https://powerful-harbor-18198.herokuapp.com/hotel`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: id })
+        })
+        .then(res => res.json())
+        .then(data => setHotel(...data))
+    }, [id]);
 
     return (
         <div className="container details-container">
             <div className="row img-height">
                 <div className="col-md-6">
-                    <img className="w-100" src="https://storage.googleapis.com/static-content-hc/sites/default/files/cataloina_porto_doble_balcon2_2.jpg" alt="Hotel Building" />
+                    <img className="w-100" src={hotelImg} alt="Hotel Building" />
                 </div>
                 <div className="col-md-6">
-                    <img className="w-100" src="https://storage.googleapis.com/static-content-hc/sites/default/files/cataloina_porto_doble_balcon2_2.jpg" alt="Hotel Bedroom" />
+                    <img className="w-100" src={hotelImg} alt="Hotel Bedroom" />
                 </div>
             </div>
             <div className="detail-width">
@@ -21,14 +35,14 @@ const HotelDetails = () => {
                     <div className="col-md-6">
                         <div className="row">
                             <div className="col-md-9">
-                                <h2>Light Bright airy stylish apt & safe peaceful stay</h2>
+                                <h2>{title}</h2>
                             </div>
                             <div className="col-md-3">
-                                <img className="person-img rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr3qBVX4XIA8zq3LpBn64zAuOt9_IZ7_H5uA&usqp=CAU" alt="" />
+                                <img className="person-img rounded-circle" src={ownerImg} alt="owner" />
                             </div>
                         </div>
-                        <p className="paragraph-text-color mt-3">Dhaka, Bangladesh</p>
-                        <p>4 guests  2 bedrooms  2 beds  2 baths</p>
+                        <p className="paragraph-text-color mt-3">{location}, Bangladesh</p>
+                        <p>{guests} guests {bedrooms} bedrooms {beds} beds {baths} baths</p>
                         <hr />
                         <div>
                             {
