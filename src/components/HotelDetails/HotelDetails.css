@@ -1,0 +1,11 @@
+.details-container .detail-width{
+    width: 85%;
+    margin: 0 auto;
+}
+.details-container .pricing-section{
+    width: 85%;
+    margin: 0 auto;
+}
+.details-container .person-img{
+    width: 50px;
+}
