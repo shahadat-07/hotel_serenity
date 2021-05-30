@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useSelector, useDispatch } from 'react-redux';
 import './Search.css';
+import {
+    incrementAdults,
+    decrementAdults,
+    incrementChild,
+    decrementChild,
+    incrementBabies,
+    decrementBabies
+} from '../../../redux/actions';
 
 const Search = () => {
 
-
+    const adults = useSelector(state => state.adults);
+    const child = useSelector(state => state.child);
+    const babies = useSelector(state => state.babies);
+    const dispatch = useDispatch();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -25,7 +37,7 @@ const Search = () => {
 
 
     return (
-        <div className="col col-md-4 py-5">
+        <div className="col py-5">
             <h6>Where Do You Want To Go</h6>
             <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -76,9 +88,9 @@ const Search = () => {
                                         </div>
                                         <div className="col-5">
                                             <div className="input-group">
-                                                <button className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">-</button>
-                                                <input type="text" name="adults" value={1} className="form-control bg-white form-control-sm text-center fs-3 fw-bold input-field p-0 m-0" aria-label="Example text with button addon" aria-describedby="button-addon1" {...register("adults", { required: true })} />
-                                                <button className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">+</button>
+                                                <button onClick={() => dispatch(decrementAdults())} className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">-</button>
+                                                <input type="text" name="adults" value={adults} className="form-control bg-white form-control-sm text-center fs-4 fw-bold input-field p-0 m-0" aria-label="Example text with button addon" aria-describedby="button-addon1" {...register("adults", { required: true })} />
+                                                <button onClick={() => dispatch(incrementAdults())} className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">+</button>
                                             </div>
                                         </div>
                                     </div>
@@ -92,9 +104,9 @@ const Search = () => {
                                         </div>
                                         <div className="col-5">
                                             <div className="input-group">
-                                                <button className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">-</button>
-                                                <input type="text" name="child" value={1} className="form-control bg-white form-control-sm text-center fs-3 fw-bold input-field p-0 m-0" aria-label="Example text with button addon" aria-describedby="button-addon1" {...register("child", { required: true })} />
-                                                <button className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">+</button>
+                                                <button onClick={() => dispatch(decrementChild())} className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">-</button>
+                                                <input type="text" name="child" value={child} className="form-control bg-white form-control-sm text-center fs-4 fw-bold input-field p-0 m-0" aria-label="Example text with button addon" aria-describedby="button-addon1" {...register("child", { required: true })} />
+                                                <button onClick={() => dispatch(incrementChild())} className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">+</button>
                                             </div>
                                         </div>
                                     </div>
@@ -108,9 +120,9 @@ const Search = () => {
                                         </div>
                                         <div className="col-5">
                                             <div className="input-group mb-2">
-                                                <button className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">-</button>
-                                                <input type="text" name="babies" value={1} className="form-control bg-white form-control-sm text-center fs-3 fw-bold input-field p-0 m-0" aria-label="Example text with button addon" aria-describedby="button-addon1" {...register("babies", { required: true })} />
-                                                <button className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">+</button>
+                                                <button onClick={() => dispatch(decrementBabies())} className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">-</button>
+                                                <input type="text" name="babies" value={babies} className="form-control bg-white form-control-sm text-center fs-4 fw-bold input-field p-0 m-0" aria-label="Example text with button addon" aria-describedby="button-addon1" {...register("babies", { required: true })} />
+                                                <button onClick={() => dispatch(incrementBabies())} className="btn fs-2 fw-bold p-0 m-2 btn-focus" type="button" id="button-addon1">+</button>
                                             </div>
                                         </div>
                                     </div>

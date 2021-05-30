@@ -9,8 +9,12 @@ const Home = () => {
             <Navbar />
             <div className="container">
                 <div className="row">
-                    <Search />
-                    <Hotels />
+                    <div className="col-md-4">
+                        <Search/>
+                    </div>
+                    <div className="col-md-8">
+                        <Hotels/>
+                    </div>
                 </div>
             </div>
         </>

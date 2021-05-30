@@ -8,7 +8,7 @@ const Hotels = () => {
 
     
     return (
-        <div className="col col-md-8 py-5">
+        <div className="col py-5">
             {hotels.length > 0 && <h1>Popular Hotels</h1>}
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {hotels.map(hotel => <HotelCard key={hotel._id} hotel={hotel} />)}
