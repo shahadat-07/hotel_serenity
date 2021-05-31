@@ -10,13 +10,17 @@ import hotelsData from './FakeData/HotelFakeData.json';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+import Payment from './components/Payment/Payment';
+import { createContext, useState } from 'react';
+import Travelling from './components/Travelling/Travelling';
+
+export const SelectedHotelContext = createContext();
 
 function App() {
 
-
+  const [selectedHotel, setSelectedHotel] = useState({});
   // const handlePushData = () => {
   //   fetch('https://powerful-harbor-18198.herokuapp.com/addHotels', {
   //     method: 'POST',
@@ -29,23 +33,37 @@ function App() {
   // }
 
   return (
-    <Router className="App">
-      {/* <button onClick={handlePushData}>push Data</button> */}
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/hotels">
-          <AvailableHotels />
-        </Route>
-        <Route path="/hotels/:id">
-          <HotelDetails />
-        </Route>
-      </Switch>
+    <SelectedHotelContext.Provider value={[selectedHotel, setSelectedHotel]}>
+      <Router className="App">
+        {/* <button onClick={handlePushData}>push Data</button> */}
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/hotels">
+            <AvailableHotels />
+          </Route>
+          <Route path="/hotels/:id">
+            <HotelDetails />
+          </Route>
+          <Route path="/review">
+            <ReviewHotelRules />
+          </Route>
+          <Route path="/who">
+            <Travelling />
+          </Route>
+          <Route path="/pay">
+            <Payment />
+          </Route>
 
-      {/* <ReviewHotelRules></ReviewHotelRules>
-      <Login></Login> */}
-    </Router>
+        </Switch>
+
+
+
+
+
+      </Router>
+    </SelectedHotelContext.Provider>
   );
 }
 

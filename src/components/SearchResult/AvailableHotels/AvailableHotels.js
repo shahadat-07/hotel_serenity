@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import AvailableHotelCard from '../AvailableHotelCard/AvailableHotelCard';
 import hotelsData from '../../../FakeData/HotelFakeData.json';
+import { SelectedHotelContext } from '../../../App';
 
 const AvailableHotels = () => {
     const location = useSelector(state => state.location);
+    const [selectedHotel, setSelectedHotel] = useContext(SelectedHotelContext);
     const [hotels, setHotels] = useState([]);
-    console.log(hotels)
+    const [hotelID, setHotelID] = useState({});
+    useEffect(() => {
+        const hotel = hotels.find(hotel => hotel._id === hotelID);
+        setSelectedHotel(hotel)
+    }, [hotelID, hotels, setSelectedHotel]);
     useEffect(() => {
         // let hotelFound = hotelsData.filter(hotel => hotel.location === location);
         // if(hotelFound.length === 0){
@@ -20,7 +26,7 @@ const AvailableHotels = () => {
     return (
         <div className="container py-5">
             <div className="row">
-                {hotels.map((hotel) => <AvailableHotelCard key={hotel.idHotel} hotelData={hotel}/>)}          
+                {hotels.map((hotel) => <AvailableHotelCard setHotelID={setHotelID} key={hotel.idHotel} hotelData={hotel}/>)}          
             </div>
         </div>
     );

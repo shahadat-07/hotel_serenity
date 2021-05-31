@@ -5,6 +5,7 @@ import babiesReducer from './babies';
 import locationReducer from "./location";
 import arrivalReducer from "./arrival";
 import departureReducer from "./departure";
+import hotelReducer from "./hotel";
 
 const allReducers = combineReducers({
     adults: adultsReducer,

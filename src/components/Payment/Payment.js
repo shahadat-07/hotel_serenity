@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import BillCard from '../Shared/BillCard/BillCard';
 import './Payment.css';
 import PaymentProcess from '../PaymentProcess/PaymentProcess';
+import DetailPricingForm from '../HotelDetails/DetailPricingForm';
+import { SelectedHotelContext } from '../../App';
 
 const Payment = () => {
+    const [selectedHotel] = useContext(SelectedHotelContext);
     return (
         <div className="container">
             <div className="row">
@@ -13,7 +16,7 @@ const Payment = () => {
                     <PaymentProcess/>
                 </div>
                 <div className="col-md-5">
-                    <BillCard></BillCard>
+                <DetailPricingForm hotelData={selectedHotel} showRating={false} showHotel={true} showButton={false}/>
                 </div>
             </div>
         </div>

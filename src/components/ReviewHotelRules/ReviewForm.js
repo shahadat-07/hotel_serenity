@@ -5,15 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const ReviewForm = () => {
     return (
         <div className="shadow bg-body form-container">
-            <div className="row">
-                <div className="col-8">
-                    <h5>Light bright airy stylish apt & safe peaceful stay</h5>
-                    <small><span className="star-color"><FontAwesomeIcon icon={faStar} /></span> (67 reviews)</small>
-                </div>
-                <div className="col-4">
-                    <img className="img-fluid rounded-3" src="https://storage.googleapis.com/static-content-hc/sites/default/files/cataloina_porto_doble_balcon2_2.jpg" alt="" />
-                </div>
-            </div>
+            
             <div>
                 <div className="mt-3">
                     <small>Dates</small>

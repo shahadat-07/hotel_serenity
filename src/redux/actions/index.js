@@ -52,4 +52,10 @@ export const setDepartureDate = (date) => {
         type: 'SET_DEPARTURE_DATE',
         payload: date
     }
-}
+};
+export const setHotel = (data) => {
+    return {
+        type: 'SET_HOTEL',
+        payload: data
+    }
+};

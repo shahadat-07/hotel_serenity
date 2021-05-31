@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+import { SelectedHotelContext } from '../../App';
 import { reviewRules } from '../../FakeData/data';
+import DetailPricingForm from '../HotelDetails/DetailPricingForm';
 import '../ShareCss/ShareCss.css';
 import ReviewForm from './ReviewForm';
 import Rules from './Rules';
 
 const ReviewHotelRules = () => {
+    const [selectedHotel] = useContext(SelectedHotelContext);
+    const history = useHistory();
+    const handleClick = () => {
+        history.push('/who')
+    }
     return (
         <div className="container review-container">
             <div className="row mt-5">
@@ -46,15 +55,12 @@ const ReviewHotelRules = () => {
                         }
                     </div>
                     <div className="button-big-device">
-                        <button className="btn btn-success mt-3">Agree and continue</button>
+                        <button onClick={handleClick} className="btn btn-success mt-3">Agree and continue</button>
                     </div>
                 </div>
                 <div className="col-md-5">
-                    <ReviewForm></ReviewForm>
+                    <DetailPricingForm hotelData={selectedHotel} showRating={false} showHotel={true} showButton={false}/>
                 </div>
-            </div>
-            <div className="button-small-device mt-3 text-end mb-5">
-                <button className="btn btn-success mt-3">Agree and continue</button>
             </div>
         </div>
     );

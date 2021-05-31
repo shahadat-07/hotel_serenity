@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './HotelDetails.css';
 import { hotelBenefit } from '../../FakeData/data';
 import HotelBenefit from './HotelBenefit';
 import DetailPricingForm from './DetailPricingForm';
 import { useParams } from 'react-router';
 import hotelsData from '../../FakeData/singleHotelData.json';
+import { SelectedHotelContext } from '../../App';
 
 const HotelDetails = () => {
     const {id} = useParams();
     const [hotel, setHotel] = useState({});
     const {guests, bedrooms, beds, baths, title, hotelImg, location, ratings, price, facilities1, facilities2, _id, owner, ownerImg} = hotel;
+    const [selectedHotel] = useContext(SelectedHotelContext);
+    console.log(selectedHotel)
     useEffect(() => {
         fetch(`https://powerful-harbor-18198.herokuapp.com/hotel`, {
             method: 'POST',
@@ -56,7 +59,7 @@ const HotelDetails = () => {
                     </div>
                     <div className="col-md-6">
                         <div className="pricing-section">
-                            <DetailPricingForm></DetailPricingForm>
+                            <DetailPricingForm hotelData={selectedHotel} showRating={true} showHotel={false} showButton={true}></DetailPricingForm>
                         </div>
                     </div>
                 </div>
